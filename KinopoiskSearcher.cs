@@ -20,7 +20,18 @@ namespace ParserHTML
 
         public bool DownloadHTML(string moveName)
         {
-            return false;
+            _cover = null;
+
+            try
+            {
+                _html = HtmlDownloadHelper.DownloadHtml(string.Format(BaseUrl, moveName));                
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+           
         }
 
         public bool FindCover()
