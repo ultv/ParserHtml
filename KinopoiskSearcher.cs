@@ -24,7 +24,7 @@ namespace ParserHTML
 
             try
             {
-                _html = HtmlDownloadHelper.DownloadHtml(string.Format(BaseUrl, moveName));                
+                _html = HtmlDownloadHelper.DownloadHtml(string.Format(BaseUrl, moveName), Encoding.GetEncoding(1251));                
                 return true;
             }
             catch
