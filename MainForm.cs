@@ -12,9 +12,21 @@ namespace ParserHTML
 {
     public partial class MainForm : Form
     {
+        private KinopoiskSearcher ks;
+
         public MainForm()
         {
             InitializeComponent();
+            ks = new KinopoiskSearcher();
+        }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            if (ks.DownloadHTML(NameTextBox.Text))
+
+                //MessageBox.Show("Download complete");
+
+                ks.FindCover();
         }
     }
 }
