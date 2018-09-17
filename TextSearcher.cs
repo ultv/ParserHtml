@@ -18,7 +18,7 @@ namespace ParserHTML
 
         public void GoTo(string text)
         {            
-            int p = _text.IndexOf(_text, _position);
+            int p = _text.IndexOf(text, _position);
 
             if (p > -1)
                 _position = p;
@@ -26,7 +26,7 @@ namespace ParserHTML
 
         public void Skip(string text)
         {
-            int p = _text.IndexOf(_text, _position);
+            int p = _text.IndexOf(text, _position);
 
             if (p > -1)
                 _position = p + text.Length;
@@ -39,7 +39,8 @@ namespace ParserHTML
 
             if(p > -1)
             {
-                result = text.Substring(_position, p - _position);
+                result = _text.Substring(_position, p - _position);
+                _position = p;
             }
 
             return result;

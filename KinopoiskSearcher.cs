@@ -45,9 +45,13 @@ namespace ParserHTML
         public bool FindCover()
         {
             if (string.IsNullOrEmpty(_html))
-                throw new KinopoiskParserException("Код html не был загружен. Сначала выполните DownloadHtml.");
+                throw new KinopoiskParserException("Код html не был загружен. Сначала выполните DownloadHtml.");            
 
-           
+            TextSearcher ts = new TextSearcher(_html);
+            ts.Skip("popupBigImage");
+            ts.Skip("src=\"https://st.kp.yandex.net/images/film_iphone/");
+
+            string imageName = "https://st.kp.yandex.net/images/film_iphone/" + ts.ReadTo("\"");
 
             return false;
         }
