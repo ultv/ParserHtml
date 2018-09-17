@@ -29,6 +29,7 @@ namespace ParserHTML
             HttpWebResponse response = request.GetResponse() as HttpWebResponse;
 
             StreamReader sr = new StreamReader(response.GetResponseStream(), encoding);
+            //sr.ReadLine();
             string html = sr.ReadToEnd();
 
             return html;

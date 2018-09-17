@@ -7,6 +7,14 @@ using System.Threading.Tasks;
 
 namespace ParserHTML
 {
+    public class KinopoiskParserException : Exception
+    {
+        public KinopoiskParserException(string message) : base(message)
+        {
+
+        }
+    }
+
     public class KinopoiskSearcher
     {
         private string _html;
@@ -36,6 +44,11 @@ namespace ParserHTML
 
         public bool FindCover()
         {
+            if (string.IsNullOrEmpty(_html))
+                throw new KinopoiskParserException("Код html не был загружен. Сначала выполните DownloadHtml.");
+
+           
+
             return false;
         }
     }

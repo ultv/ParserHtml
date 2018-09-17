@@ -23,7 +23,10 @@ namespace ParserHTML
         private void SearchButton_Click(object sender, EventArgs e)
         {
             if (ks.DownloadHTML(NameTextBox.Text))
-                MessageBox.Show("Download complete");
+
+                //MessageBox.Show("Download complete");
+
+                ks.FindCover();
         }
     }
 }
